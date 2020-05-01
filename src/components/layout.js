@@ -1,18 +1,19 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import { rhythm, scale } from "../utils/typography"
+import { rhythm } from "../utils/typography"
+import Footer from "./footer"
 
 const Layout = ({ title, children }) => {
   const header = (
-    <>
-      <h1
-        style={{
-          ...scale(1.5),
-          marginBottom: rhythm(1.5),
-          marginTop: 0,
-        }}
-      >
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}
+    >
+      <h1>
         <Link
           style={{
             boxShadow: `none`,
@@ -24,12 +25,17 @@ const Layout = ({ title, children }) => {
         </Link>
       </h1>
       <div>
-        <Link to={`/`}>Home</Link>
-        <Link to={`/about`}>About</Link>
-        <Link to={`/blog`}>Blog</Link>
-        <Link to={`/contact`}>Contact</Link>
+        <Link style={{ marginLeft: "10px" }} to={`/`}>
+          Home
+        </Link>
+        <Link style={{ marginLeft: "10px" }} to={`/blog`}>
+          Blog
+        </Link>
+        <Link style={{ marginLeft: "10px" }} to={`/uses`}>
+          Uses
+        </Link>
       </div>
-    </>
+    </div>
   )
   return (
     <div
@@ -42,11 +48,7 @@ const Layout = ({ title, children }) => {
     >
       <header>{header}</header>
       <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
+      <Footer />
     </div>
   )
 }

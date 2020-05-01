@@ -3,5 +3,9 @@ import React from "react"
 import Layout from "../components/layout"
 
 export default () => {
-  return <Layout title={"About"}>About</Layout>
+  return (
+    <Layout>
+      <div>Uses page</div>
+    </Layout>
+  )
 }
