@@ -1,17 +1,20 @@
 import React from "react"
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import Layout from "../components/layout"
-import portrait from "../../static/portrait.jpg"
 
-export default () => {
+export default ({ data }) => {
+  console.log("data:", data)
   return (
     <Layout>
       <div style={{ display: "flex" }}>
-        <img
-          src={portrait}
-          style={{ width: "250px", height: "400px", marginRight: "50px" }}
-          alt="portrait"
-        />
+        <div style={{ width: "250px", height: "400px", marginRight: "20px" }}>
+          <Img
+            fixed={data.file.childImageSharp.fixed}
+            alt="Janez Čadež portrait"
+          />
+        </div>
         <div>
           <h2>Janez Čadež</h2>
           <h3>Full-Stack Developer</h3>
@@ -24,3 +27,15 @@ export default () => {
     </Layout>
   )
 }
+
+export const pageQuery = graphql`
+  query {
+    file(relativePath: { eq: "portrait.jpg" }) {
+      childImageSharp {
+        fixed(width: 250, height: 400) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+  }
+`
