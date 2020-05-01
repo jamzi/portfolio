@@ -3,5 +3,5 @@ import React from "react"
 import Layout from "../components/layout"
 
 export default () => {
-  return <Layout title={"Home"}>Home</Layout>
+  return <Layout title={"About"}>About</Layout>
 }
