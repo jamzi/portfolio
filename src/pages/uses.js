@@ -14,14 +14,14 @@ const items = {
       id: "Monitor",
       name: "Viewsonic VA2719-2k-SMHD",
       url: "https://www.viewsonic.com/us/va2719-2k-smhd.html",
-      comment: "Cheap and decent 2K 27inch monitor",
+      comment: "Cheap 2K 27inch monitor",
     },
     {
       id: "Keyboard",
       name: "ThinkPad Compact Bluetooth Keyboard",
       url:
         "https://www.amazon.com/ThinkPad-Compact-Bluetooth-Keyboard-TrackPoint/dp/B00C32FWJC",
-      comment: "Lenovo Thinkpad style keys",
+      comment: "Lenovo Thinkpad-style keyboard",
     },
     {
       id: "Mouse",
@@ -41,7 +41,7 @@ const items = {
       name: "Jabra Elite 65t",
       url: "https://www.jabra.com/bluetooth-headsets/jabra-elite-65t",
       comment:
-        "In-ear noise cancelling headphones, good alternative to Apple AirPods",
+        "In-ear noise cancelling headphones. Good alternative to Apple AirPods",
     },
     {
       id: "Laptop bag",
@@ -53,7 +53,6 @@ const items = {
       id: "Phone",
       name: "OnePlus 5T",
       url: "https://www.oneplus.com/global/5t",
-      comment: "Near-stock and performant Android phone",
     },
   ],
   Software: [
@@ -61,8 +60,7 @@ const items = {
       id: "OS",
       name: "Windows 10",
       url: "https://www.microsoft.com/sl-si/windows",
-      comment:
-        "Works great with the Thinkpad laptop, has Windows Hello unlock, etc",
+      comment: "Works great with the Thinkpad laptop and has Windows Hello",
     },
     {
       id: "IDE",
@@ -110,7 +108,7 @@ export default () => {
     <Layout>
       <div style={{ display: "flex", alignItems: "center" }}>
         <h2 style={{ margin: "0px 10px 0px 0px" }}>What Do I Use?</h2>
-        <span style={{ color: "#828282" }}>Updated: April 2020</span>
+        <span style={{ color: "#828282" }}>Updated: May 2020</span>
       </div>
       <h3>Hardware</h3>
       {renderSection("Hardware")}
