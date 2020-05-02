@@ -25,7 +25,7 @@ const items = [
 
 const Footer = () => {
   return (
-    <div>
+    <div style={{ marginTop: "50px" }}>
       {items.map(item => (
         <a
           href={item.url}
