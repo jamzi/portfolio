@@ -9,8 +9,11 @@ const BlogIndex = ({ data }) => {
   const posts = data.allMarkdownRemark.edges
 
   return (
-    <Layout title={"Blog"}>
-      <SEO title="All posts" />{" "}
+    <Layout>
+      <SEO title="All posts" />
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <h2 style={{ margin: "0px 10px 0px 0px" }}>Articles</h2>
+      </div>
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
