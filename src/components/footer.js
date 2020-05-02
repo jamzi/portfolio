@@ -25,9 +25,12 @@ const items = [
 
 const Footer = () => {
   return (
-    <div style={{ marginTop: "50px" }}>
+    <div
+      style={{ marginTop: "50px", display: "flex", justifyContent: "center" }}
+    >
       {items.map(item => (
         <a
+          style={{ marginRight: "10px" }}
           href={item.url}
           key={item.id}
           target="_blank"
