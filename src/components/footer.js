@@ -19,7 +19,7 @@ const items = [
   {
     id: "mail",
     name: "Mail",
-    url: "mailto:info@janez.tech",
+    url: "mailto:janez.cadez007@gmail.com",
   },
 ]
 
