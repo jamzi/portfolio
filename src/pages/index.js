@@ -7,6 +7,9 @@ import Layout from "../components/layout"
 
 const HomeWrapper = styled.div`
   display: flex;
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+  }
 `
 
 const PortfolioImageWrapper = styled.div`
