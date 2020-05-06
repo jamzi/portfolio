@@ -85,10 +85,11 @@ const items = {
 
 const TitleWrapper = styled.div`
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
 `
 
-const StyledTitle = styled.h2`
+const Title = styled.h2`
   margin: 0px 10px 0px 0px;
 `
 
@@ -100,7 +101,13 @@ const SectionWrapper = styled.div`
   margin-bottom: 20px;
 `
 
+const SectionTitle = styled.h2`
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+`
+
 const SectionName = styled.div`
+  font-size: 1.2rem;
   font-weight: bold;
 `
 
@@ -138,12 +145,12 @@ export default () => {
   return (
     <Layout>
       <TitleWrapper>
-        <StyledTitle>What Do I Use?</StyledTitle>
+        <Title>What Do I Use?</Title>
         <UpdatedAt>Updated: May 2020</UpdatedAt>
       </TitleWrapper>
-      <h3>Hardware</h3>
+      <SectionTitle>Hardware</SectionTitle>
       {renderSection("Hardware")}
-      <h3>Software</h3>
+      <SectionTitle>Software</SectionTitle>
       {renderSection("Software")}
       <div>
         If you like this kind of content check out{" "}

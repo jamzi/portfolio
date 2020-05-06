@@ -31,7 +31,10 @@ const Container = styled.div`
 `
 
 const LinkItem = styled.a`
-  margin-right: 10px;
+  margin-left: 10px;
+  color: #000;
+  text-decoration: underline;
+  font-size: 1.2rem;
 `
 
 const Footer = () => {

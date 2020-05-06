@@ -6,29 +6,29 @@ import styled from "styled-components"
 import Footer from "./footer"
 
 const Wrapper = styled.div`
-  margin-left: auto;
-  margin-right: auto;
-  font-family: Roboto;
+  padding: 20px;
 `
 
 const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
+  padding-bottom: 20px;
 `
 
 const StyledLink = styled(Link)`
   margin-left: 10px;
+  color: #000;
+  text-decoration: underline;
+  font-size: 1.2rem;
 `
 
 const Layout = ({ children }) => {
   const header = (
     <HeaderWrapper>
-      <div>
-        <StyledLink to={`/`}>Home</StyledLink>
-        <StyledLink to={`/blog`}>Blog</StyledLink>
-        <StyledLink to={`/uses`}>Uses</StyledLink>
-      </div>
+      <StyledLink to={`/`}>Home</StyledLink>
+      <StyledLink to={`/blog`}>Blog</StyledLink>
+      <StyledLink to={`/uses`}>Uses</StyledLink>
     </HeaderWrapper>
   )
   return (
