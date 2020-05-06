@@ -25,24 +25,27 @@ const items = [
 ]
 
 const Container = styled.div`
-  margin-top: "50px";
-  display: "flex";
-  justify-content: "center";
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+`
+
+const LinkItem = styled.a`
+  margin-right: 10px;
 `
 
 const Footer = () => {
   return (
     <Container>
       {items.map(item => (
-        <a
-          style={{ marginRight: "10px" }}
+        <LinkItem
           href={item.url}
           key={item.id}
           target="_blank"
           rel="noopener noreferrer"
         >
           {item.name}
-        </a>
+        </LinkItem>
       ))}
     </Container>
   )

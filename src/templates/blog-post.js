@@ -1,8 +1,25 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import styled from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+
+const BlogTitle = styled.h1`
+  margin-bottom: 0px;
+`
+
+const BlogDate = styled.p`
+  display: "block";
+`
+
+const BlogLinkList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+`
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
@@ -16,35 +33,15 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       />
       <article>
         <header>
-          <h1
-            style={{
-              marginBottom: 0,
-            }}
-          >
-            {post.frontmatter.title}
-          </h1>
-          <p
-            style={{
-              display: `block`,
-            }}
-          >
-            {post.frontmatter.date}
-          </p>
+          <BlogTitle>{post.frontmatter.title}</BlogTitle>
+          <BlogDate>{post.frontmatter.date}</BlogDate>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr />
       </article>
 
       <nav>
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
+        <BlogLinkList>
           <li>
             {previous && (
               <Link to={previous.fields.slug} rel="prev">
@@ -59,7 +56,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               </Link>
             )}
           </li>
-        </ul>
+        </BlogLinkList>
       </nav>
     </Layout>
   )

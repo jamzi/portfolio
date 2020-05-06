@@ -6,43 +6,30 @@ import styled from "styled-components"
 import Footer from "./footer"
 
 const Wrapper = styled.div`
-  margin-left: "auto";
-  margin-right: "auto";
+  margin-left: auto;
+  margin-right: auto;
   font-family: Roboto;
 `
 
-const Layout = ({ title, children }) => {
+const HeaderWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
+const StyledLink = styled(Link)`
+  margin-left: 10px;
+`
+
+const Layout = ({ children }) => {
   const header = (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-      }}
-    >
-      <h1>
-        <Link
-          style={{
-            boxShadow: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h1>
+    <HeaderWrapper>
       <div>
-        <Link style={{ marginLeft: "10px" }} to={`/`}>
-          Home
-        </Link>
-        <Link style={{ marginLeft: "10px" }} to={`/blog`}>
-          Blog
-        </Link>
-        <Link style={{ marginLeft: "10px" }} to={`/uses`}>
-          Uses
-        </Link>
+        <StyledLink to={`/`}>Home</StyledLink>
+        <StyledLink to={`/blog`}>Blog</StyledLink>
+        <StyledLink to={`/uses`}>Uses</StyledLink>
       </div>
-    </div>
+    </HeaderWrapper>
   )
   return (
     <>

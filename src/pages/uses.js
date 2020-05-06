@@ -1,4 +1,5 @@
 import React from "react"
+import styled from "styled-components"
 
 import Layout from "../components/layout"
 
@@ -82,34 +83,64 @@ const items = {
   ],
 }
 
+const TitleWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+const StyledTitle = styled.h2`
+  margin: 0px 10px 0px 0px;
+`
+
+const UpdatedAt = styled.span`
+  color: #828282;
+`
+
+const SectionWrapper = styled.div`
+  margin-bottom: 20px;
+`
+
+const SectionName = styled.div`
+  font-weight: bold;
+`
+
+const SectionContent = styled.div`
+  display: "flex";
+  flex-wrap: wrap;
+`
+
+const ItemName = styled.a`
+  margin-right: 5px;
+  color: blue;
+`
+
+const ItemComment = styled.div`
+  color: #828282;
+`
+
 export default () => {
   const renderSection = type => {
     return items[type].map(item => (
-      <div key={item.id} style={{ marginBottom: "20px" }}>
-        <div style={{ fontWeight: "bold" }}>{item.id}</div>
-        <div style={{ display: "flex", flexWrap: "wrap" }}>
-          <a
-            style={{ marginRight: "5px" }}
-            href={item.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+      <SectionWrapper key={item.id}>
+        <SectionName>{item.id}</SectionName>
+        <SectionContent>
+          <ItemName href={item.url} target="_blank" rel="noopener noreferrer">
             {item.name}
-          </a>
-          <div style={{ color: "#828282" }}>{`${
+          </ItemName>
+          <ItemComment>{`${
             item.comment !== undefined ? `(${item.comment})` : ""
-          }`}</div>
-        </div>
-      </div>
+          }`}</ItemComment>
+        </SectionContent>
+      </SectionWrapper>
     ))
   }
 
   return (
     <Layout>
-      <div style={{ display: "flex", alignItems: "center" }}>
-        <h2 style={{ margin: "0px 10px 0px 0px" }}>What Do I Use?</h2>
-        <span style={{ color: "#828282" }}>Updated: May 2020</span>
-      </div>
+      <TitleWrapper>
+        <StyledTitle>What Do I Use?</StyledTitle>
+        <UpdatedAt>Updated: May 2020</UpdatedAt>
+      </TitleWrapper>
       <h3>Hardware</h3>
       {renderSection("Hardware")}
       <h3>Software</h3>

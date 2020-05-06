@@ -1,18 +1,29 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
+import styled from "styled-components"
 
 import Layout from "../components/layout"
 
+const HomeWrapper = styled.div`
+  display: flex;
+`
+
+const PortfolioImageWrapper = styled.div`
+  width: 250px;
+  height: 400px;
+  margin-right: 20px;
+`
+
 export default ({ data }) => (
   <Layout>
-    <div style={{ display: "flex" }}>
-      <div style={{ width: "250px", height: "400px", marginRight: "20px" }}>
+    <HomeWrapper>
+      <PortfolioImageWrapper>
         <Img
           fluid={data.file.childImageSharp.fluid}
           alt="Janez Čadež portrait"
         />
-      </div>
+      </PortfolioImageWrapper>
       <div>
         <h2>Janez Čadež</h2>
         <h3>Full-Stack Developer</h3>
@@ -21,7 +32,7 @@ export default ({ data }) => (
           enthusiast, self-improvement nerd, and amateur musician.
         </div>
       </div>
-    </div>
+    </HomeWrapper>
   </Layout>
 )
 
@@ -29,7 +40,7 @@ export const pageQuery = graphql`
   query {
     file(relativePath: { eq: "portrait.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 500) {
+        fluid(maxWidth: 500, quality: 100) {
           ...GatsbyImageSharpFluid_tracedSVG
         }
       }

@@ -1,8 +1,22 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import styled from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+
+const ArticlesWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+const SectionTitle = styled.h2`
+  margin: 0px 10px 0px 0px;
+`
+
+const StyledLink = styled(Link)`
+  box-shadow: "none";
+`
 
 const BlogIndex = ({ data }) => {
   const posts = data.allMarkdownRemark.edges
@@ -10,18 +24,16 @@ const BlogIndex = ({ data }) => {
   return (
     <Layout>
       <SEO title="All posts" />
-      <div style={{ display: "flex", alignItems: "center" }}>
-        <h2 style={{ margin: "0px 10px 0px 0px" }}>Articles</h2>
-      </div>
+      <ArticlesWrapper>
+        <SectionTitle>Articles</SectionTitle>
+      </ArticlesWrapper>
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
           <article key={node.fields.slug}>
             <header>
               <h3>
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link>
+                <StyledLink to={node.fields.slug}>{title}</StyledLink>
               </h3>
               <small>{node.frontmatter.date}</small>
             </header>
