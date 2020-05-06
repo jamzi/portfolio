@@ -1,8 +1,15 @@
 import React from "react"
 import { Link } from "gatsby"
+import { Reset } from "styled-reset"
+import styled from "styled-components"
 
-import { rhythm } from "../utils/typography"
 import Footer from "./footer"
+
+const Wrapper = styled.div`
+  margin-left: "auto";
+  margin-right: "auto";
+  font-family: Roboto;
+`
 
 const Layout = ({ title, children }) => {
   const header = (
@@ -38,19 +45,14 @@ const Layout = ({ title, children }) => {
     </div>
   )
   return (
-    <div
-      style={{
-        marginLeft: `auto`,
-        marginRight: `auto`,
-        maxWidth: rhythm(24),
-        padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        fontFamily: "Roboto",
-      }}
-    >
-      <header>{header}</header>
-      <main>{children}</main>
-      <Footer />
-    </div>
+    <>
+      <Reset />
+      <Wrapper>
+        <header>{header}</header>
+        <main>{children}</main>
+        <Footer />
+      </Wrapper>
+    </>
   )
 }
 

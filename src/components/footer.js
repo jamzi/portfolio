@@ -1,4 +1,5 @@
 import React from "react"
+import styled from "styled-components"
 
 const items = [
   {
@@ -23,11 +24,15 @@ const items = [
   },
 ]
 
+const Container = styled.div`
+  margin-top: "50px";
+  display: "flex";
+  justify-content: "center";
+`
+
 const Footer = () => {
   return (
-    <div
-      style={{ marginTop: "50px", display: "flex", justifyContent: "center" }}
-    >
+    <Container>
       {items.map(item => (
         <a
           style={{ marginRight: "10px" }}
@@ -39,7 +44,7 @@ const Footer = () => {
           {item.name}
         </a>
       ))}
-    </div>
+    </Container>
   )
 }
 
