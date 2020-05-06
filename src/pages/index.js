@@ -9,7 +9,7 @@ export default ({ data }) => (
     <div style={{ display: "flex" }}>
       <div style={{ width: "250px", height: "400px", marginRight: "20px" }}>
         <Img
-          fixed={data.file.childImageSharp.fixed}
+          fluid={data.file.childImageSharp.fluid}
           alt="Janez Čadež portrait"
         />
       </div>
@@ -29,8 +29,8 @@ export const pageQuery = graphql`
   query {
     file(relativePath: { eq: "portrait.jpg" }) {
       childImageSharp {
-        fixed(width: 250, height: 400) {
-          ...GatsbyImageSharpFixed
+        fluid(maxWidth: 500) {
+          ...GatsbyImageSharpFluid_tracedSVG
         }
       }
     }
