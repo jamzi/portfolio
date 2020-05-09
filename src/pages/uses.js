@@ -120,8 +120,6 @@ const SectionContent = styled.div`
 const ItemName = styled.a`
   margin-right: 5px;
   box-shadow: "none";
-  text-decoration: underline;
-  color: #001f3f;
 `
 
 const ItemComment = styled.div`

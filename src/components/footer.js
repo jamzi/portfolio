@@ -32,8 +32,6 @@ const Container = styled.div`
 
 const LinkItem = styled.a`
   margin-left: 10px;
-  color: #000;
-  text-decoration: underline;
   font-size: 1.2rem;
 `
 

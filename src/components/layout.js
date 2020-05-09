@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
+import { createGlobalStyle } from "styled-components"
 
 import Footer from "./footer"
 
@@ -18,9 +19,14 @@ const HeaderWrapper = styled.div`
 
 const StyledLink = styled(Link)`
   margin-left: 10px;
-  color: #000;
-  text-decoration: underline;
   font-size: 1.2rem;
+`
+
+const GlobalStyle = createGlobalStyle`
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
 `
 
 const Layout = ({ children }) => {
@@ -33,6 +39,7 @@ const Layout = ({ children }) => {
   )
   return (
     <Wrapper>
+      <GlobalStyle />
       <header>{header}</header>
       <main>{children}</main>
       <Footer />

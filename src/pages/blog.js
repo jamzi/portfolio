@@ -37,8 +37,6 @@ const SectionTitle = styled.h2`
 
 const StyledLink = styled(Link)`
   box-shadow: "none";
-  text-decoration: underline;
-  color: #001f3f;
 `
 
 const BlogIndex = ({ data }) => {
