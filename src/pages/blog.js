@@ -8,14 +8,33 @@ import SEO from "../components/seo"
 const ArticlesWrapper = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: 30px;
+`
+
+const Article = styled.article`
+  margin-bottom: 35px;
+`
+
+const ArticleTitle = styled.h3`
+  font-size: 20px;
+  margin-bottom: 5px;
+`
+
+const ArticleDate = styled.div`
+  font-size: 15px;
+  margin-bottom: 5px;
+  color: #828282;
 `
 
 const SectionTitle = styled.h2`
+  font-size: 30px;
   margin: 0px 10px 0px 0px;
 `
 
 const StyledLink = styled(Link)`
   box-shadow: "none";
+  text-decoration: underline;
+  color: #001f3f;
 `
 
 const BlogIndex = ({ data }) => {
@@ -30,12 +49,12 @@ const BlogIndex = ({ data }) => {
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
-          <article key={node.fields.slug}>
+          <Article key={node.fields.slug}>
             <header>
-              <h3>
+              <ArticleTitle>
                 <StyledLink to={node.fields.slug}>{title}</StyledLink>
-              </h3>
-              <small>{node.frontmatter.date}</small>
+              </ArticleTitle>
+              <ArticleDate>{node.frontmatter.date}</ArticleDate>
             </header>
             <section>
               <p
@@ -44,7 +63,7 @@ const BlogIndex = ({ data }) => {
                 }}
               />
             </section>
-          </article>
+          </Article>
         )
       })}
     </Layout>
