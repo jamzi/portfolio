@@ -90,6 +90,7 @@ const TitleWrapper = styled.div`
 `
 
 const Title = styled.h2`
+  font-size: 30px;
   margin: 0px 10px 0px 0px;
 `
 

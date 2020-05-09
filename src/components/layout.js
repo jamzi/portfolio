@@ -7,6 +7,7 @@ import Footer from "./footer"
 
 const Wrapper = styled.div`
   padding: 20px;
+  font-family: Overpass, sans-serif;
 `
 
 const HeaderWrapper = styled.div`
