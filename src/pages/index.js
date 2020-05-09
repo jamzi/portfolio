@@ -22,7 +22,7 @@ const Content = styled.div`
   align-items: center;
   padding: 40px;
   @media (max-width: 768px) {
-    padding: 20px;
+    padding: 0px;
   }
 `
 
@@ -42,8 +42,10 @@ const Name = styled.h1`
   font-size: 80px;
   padding-bottom: 20px;
   font-weight: bold;
+  margin: 10px 0px;
   @media (max-width: 768px) {
     font-size: 50px;
+    margin: 0px;
   }
 `
 

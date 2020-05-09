@@ -5,12 +5,16 @@ import styled from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const BlogTitle = styled.h1`
-  margin-bottom: 0px;
+const ArticleTitle = styled.h2`
+  font-size: 30px;
+  margin: 0px 10px 0px 0px;
+  margin-bottom: 10px;
 `
 
-const BlogDate = styled.p`
-  display: "block";
+const ArticleDate = styled.div`
+  font-size: 20px;
+  margin-bottom: 5px;
+  color: #828282;
 `
 
 const BlogLinkList = styled.ul`
@@ -31,14 +35,14 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <article>
+      <div>
         <header>
-          <BlogTitle>{post.frontmatter.title}</BlogTitle>
-          <BlogDate>{post.frontmatter.date}</BlogDate>
+          <ArticleTitle>{post.frontmatter.title}</ArticleTitle>
+          <ArticleDate>{post.frontmatter.date}</ArticleDate>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr />
-      </article>
+      </div>
 
       <nav>
         <BlogLinkList>

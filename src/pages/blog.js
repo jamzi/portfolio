@@ -26,6 +26,10 @@ const ArticleDate = styled.div`
   color: #828282;
 `
 
+const ArticleDescription = styled.p`
+  margin-top: 5px;
+`
+
 const SectionTitle = styled.h2`
   font-size: 30px;
   margin: 0px 10px 0px 0px;
@@ -57,7 +61,7 @@ const BlogIndex = ({ data }) => {
               <ArticleDate>{node.frontmatter.date}</ArticleDate>
             </header>
             <section>
-              <p
+              <ArticleDescription
                 dangerouslySetInnerHTML={{
                   __html: node.frontmatter.description || node.excerpt,
                 }}

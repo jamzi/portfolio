@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-import { Reset } from "styled-reset"
 import styled from "styled-components"
 
 import Footer from "./footer"
@@ -33,14 +32,11 @@ const Layout = ({ children }) => {
     </HeaderWrapper>
   )
   return (
-    <>
-      <Reset />
-      <Wrapper>
-        <header>{header}</header>
-        <main>{children}</main>
-        <Footer />
-      </Wrapper>
-    </>
+    <Wrapper>
+      <header>{header}</header>
+      <main>{children}</main>
+      <Footer />
+    </Wrapper>
   )
 }
 
