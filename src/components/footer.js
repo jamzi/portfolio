@@ -1,4 +1,5 @@
 import React from "react"
+import styled from "styled-components"
 
 const items = [
   {
@@ -19,27 +20,35 @@ const items = [
   {
     id: "mail",
     name: "Mail",
-    url: "mailto:info@janez.tech",
+    url: "mailto:janez.cadez007@gmail.com",
   },
 ]
 
+const Container = styled.div`
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+`
+
+const LinkItem = styled.a`
+  margin-left: 10px;
+  font-size: 1.2rem;
+`
+
 const Footer = () => {
   return (
-    <div
-      style={{ marginTop: "50px", display: "flex", justifyContent: "center" }}
-    >
+    <Container>
       {items.map(item => (
-        <a
-          style={{ marginRight: "10px" }}
+        <LinkItem
           href={item.url}
           key={item.id}
           target="_blank"
           rel="noopener noreferrer"
         >
           {item.name}
-        </a>
+        </LinkItem>
       ))}
-    </div>
+    </Container>
   )
 }
 

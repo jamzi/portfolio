@@ -1,56 +1,49 @@
 import React from "react"
 import { Link } from "gatsby"
+import styled from "styled-components"
+import { createGlobalStyle } from "styled-components"
 
-import { rhythm } from "../utils/typography"
 import Footer from "./footer"
 
-const Layout = ({ title, children }) => {
+const Wrapper = styled.div`
+  padding: 20px;
+  font-family: Overpass, sans-serif;
+`
+
+const HeaderWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 20px;
+`
+
+const StyledLink = styled(Link)`
+  margin-left: 10px;
+  font-size: 1.2rem;
+`
+
+const GlobalStyle = createGlobalStyle`
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+`
+
+const Layout = ({ children }) => {
   const header = (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-      }}
-    >
-      <h1>
-        <Link
-          style={{
-            boxShadow: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h1>
-      <div>
-        <Link style={{ marginLeft: "10px" }} to={`/`}>
-          Home
-        </Link>
-        <Link style={{ marginLeft: "10px" }} to={`/blog`}>
-          Blog
-        </Link>
-        <Link style={{ marginLeft: "10px" }} to={`/uses`}>
-          Uses
-        </Link>
-      </div>
-    </div>
+    <HeaderWrapper>
+      <StyledLink to={`/`}>Home</StyledLink>
+      <StyledLink to={`/blog`}>Blog</StyledLink>
+      <StyledLink to={`/uses`}>Uses</StyledLink>
+    </HeaderWrapper>
   )
   return (
-    <div
-      style={{
-        marginLeft: `auto`,
-        marginRight: `auto`,
-        maxWidth: rhythm(24),
-        padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        fontFamily: "Roboto",
-      }}
-    >
+    <Wrapper>
+      <GlobalStyle />
       <header>{header}</header>
       <main>{children}</main>
       <Footer />
-    </div>
+    </Wrapper>
   )
 }
 

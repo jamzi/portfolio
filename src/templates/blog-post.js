@@ -1,9 +1,29 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import styled from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
+
+const ArticleTitle = styled.h2`
+  font-size: 30px;
+  margin: 0px 10px 0px 0px;
+  margin-bottom: 10px;
+`
+
+const ArticleDate = styled.div`
+  font-size: 20px;
+  margin-bottom: 5px;
+  color: #828282;
+`
+
+const BlogLinkList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+`
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
@@ -15,44 +35,17 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <article>
+      <div>
         <header>
-          <h1
-            style={{
-              marginTop: rhythm(1),
-              marginBottom: 0,
-            }}
-          >
-            {post.frontmatter.title}
-          </h1>
-          <p
-            style={{
-              ...scale(-1 / 5),
-              display: `block`,
-              marginBottom: rhythm(1),
-            }}
-          >
-            {post.frontmatter.date}
-          </p>
+          <ArticleTitle>{post.frontmatter.title}</ArticleTitle>
+          <ArticleDate>{post.frontmatter.date}</ArticleDate>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr
-          style={{
-            marginBottom: rhythm(1),
-          }}
-        />
-      </article>
+        <hr />
+      </div>
 
       <nav>
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
+        <BlogLinkList>
           <li>
             {previous && (
               <Link to={previous.fields.slug} rel="prev">
@@ -67,7 +60,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               </Link>
             )}
           </li>
-        </ul>
+        </BlogLinkList>
       </nav>
     </Layout>
   )

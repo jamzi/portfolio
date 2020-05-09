@@ -70,21 +70,16 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
-    {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
         fonts: [
           {
-            family: `Roboto`,
-            variants: [`300`, `400`, `900`],
+            family: `Overpass`,
+            variants: [`400`],
           },
         ],
       },
     },
+    `gatsby-plugin-styled-components`,
   ],
 }

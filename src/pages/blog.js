@@ -1,9 +1,43 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import styled from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
+
+const ArticlesWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+`
+
+const Article = styled.article`
+  margin-bottom: 35px;
+`
+
+const ArticleTitle = styled.h3`
+  font-size: 20px;
+  margin-bottom: 5px;
+`
+
+const ArticleDate = styled.div`
+  font-size: 15px;
+  margin-bottom: 5px;
+  color: #828282;
+`
+
+const ArticleDescription = styled.p`
+  margin-top: 5px;
+`
+
+const SectionTitle = styled.h2`
+  font-size: 30px;
+  margin: 0px 10px 0px 0px;
+`
+
+const StyledLink = styled(Link)`
+  box-shadow: "none";
+`
 
 const BlogIndex = ({ data }) => {
   const posts = data.allMarkdownRemark.edges
@@ -11,33 +45,27 @@ const BlogIndex = ({ data }) => {
   return (
     <Layout>
       <SEO title="All posts" />
-      <div style={{ display: "flex", alignItems: "center" }}>
-        <h2 style={{ margin: "0px 10px 0px 0px" }}>Articles</h2>
-      </div>
+      <ArticlesWrapper>
+        <SectionTitle>Articles</SectionTitle>
+      </ArticlesWrapper>
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
-          <article key={node.fields.slug}>
+          <Article key={node.fields.slug}>
             <header>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
+              <ArticleTitle>
+                <StyledLink to={node.fields.slug}>{title}</StyledLink>
+              </ArticleTitle>
+              <ArticleDate>{node.frontmatter.date}</ArticleDate>
             </header>
             <section>
-              <p
+              <ArticleDescription
                 dangerouslySetInnerHTML={{
                   __html: node.frontmatter.description || node.excerpt,
                 }}
               />
             </section>
-          </article>
+          </Article>
         )
       })}
     </Layout>
