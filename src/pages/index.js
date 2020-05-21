@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import Img from "gatsby-image"
 
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 const HomeWrapper = styled.div`
   display: flex;
@@ -67,6 +68,7 @@ const PortfolioImageWrapper = styled.div`
 
 export default ({ data }) => (
   <Layout>
+    <SEO title="Home" />
     <HomeWrapper>
       <Content>
         <Introduction>

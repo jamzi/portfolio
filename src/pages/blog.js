@@ -44,7 +44,7 @@ const BlogIndex = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="All posts" />
+      <SEO title="Blog" />
       <ArticlesWrapper>
         <SectionTitle>Articles</SectionTitle>
       </ArticlesWrapper>

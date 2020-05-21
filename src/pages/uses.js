@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 const items = {
   Hardware: [
@@ -145,6 +146,7 @@ export default () => {
 
   return (
     <Layout>
+      <SEO title="Uses" />
       <TitleWrapper>
         <Title>What Do I Use?</Title>
         <UpdatedAt>Updated: May 2020</UpdatedAt>
