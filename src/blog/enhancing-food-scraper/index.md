@@ -4,7 +4,7 @@ date: "2019-10-14T22:12:03.284Z"
 description: Fail until you don't.
 ---
 
-In the previous month, I set out to build a food scraper to get daily restaurant menus for nearby restaurants. You can find more about the initial setup and first MVP product in the [first post](https://devhealth.io/food-scraper/).
+In the previous month, I set out to build a food scraper to get daily restaurant menus for nearby restaurants. You can find more about the initial setup and first MVP product in the [first post](https://janez.tech/blog/food-scraper/).
 
 This article will walk you through recently added features.
 

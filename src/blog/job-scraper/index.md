@@ -34,7 +34,7 @@ Each job listing has an id field. When the scraper is run, we save the latest jo
 
 ### Scraping job listings
 
-Since the student jobs page is generated on the backend, we can easily use an Axios XHR library to get the content of the page. This is in contrast to running the whole browser environment with Puppeteer for JS rendered websites, as we did in our previous [Food scraper project](https://devhealth.io/food-scraper/).
+Since the student jobs page is generated on the backend, we can easily use an Axios XHR library to get the content of the page. This is in contrast to running the whole browser environment with Puppeteer for JS rendered websites, as we did in our previous [Food scraper project](https://janez.tech/blog/food-scraper/).
 
 ### Knowing what to send to the user
 

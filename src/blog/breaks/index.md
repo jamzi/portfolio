@@ -8,7 +8,7 @@ description: Replenish your energy.
 
 ### Guilt
 
-Workers often feel guilty for standing up and taking a break. It's especially true for people in tech and the newcomers like interns or junior programmers. Hustling hard is the new norm. Not that I have anything against hard work, but you should play it smart to avoid getting [burned out](https://devhealth.io/burnout/).
+Workers often feel guilty for standing up and taking a break. It's especially true for people in tech and the newcomers like interns or junior programmers. Hustling hard is the new norm. Not that I have anything against hard work, but you should play it smart to avoid getting [burned out](https://janez.tech/blog/burnout/).
 
 ### Benefits
 

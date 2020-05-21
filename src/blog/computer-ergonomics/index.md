@@ -22,7 +22,7 @@ The general principle of ergonomics is to keep the body in a neutral position an
 - **Chair**. Try different ones. Generally, a chair should have a good lumbar support, be taller than your neck and adjustable. Modify it according to the height of the table so your elbows are at a 90-degree angle. Use a footrest if your feet don't reach the floor.
 - **Light**. Having sufficient light when working with a computer can help reduce eye strain.
 - **Wrists**. Using palms for support when typing can reduce risks of damaging the wrist.
-- **Breaks**. Our bodies are built to move, not to sit. Take regular breaks. It's recommended to do it about every 30 minutes. Find more about taking breaks in [my previous article](https://devhealth.io/breaks/).
+- **Breaks**. Our bodies are built to move, not to sit. Take regular breaks. It's recommended to do it about every 30 minutes. Find more about taking breaks in [my previous article](https://janez.tech/blog/breaks/).
 
 ### Standing Desks
 

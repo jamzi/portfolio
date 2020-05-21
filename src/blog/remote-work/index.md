@@ -20,7 +20,7 @@ Studies along remote workers show that the benefits of remote work outweigh the 
 
 Remote work offers an option of **spending more time with family and friends** as well as working from any location.
 
-By eliminating [distractions](https://devhealth.io/distractions/), you can also produce **deep work and improve productivity**.
+By eliminating [distractions](https://janez.tech/blog/distractions/), you can also produce **deep work and improve productivity**.
 
 ### Drawbacks
 

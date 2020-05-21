@@ -4,6 +4,7 @@ import styled from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import SocialShare from "../components/social"
 
 const ArticleTitle = styled.h2`
   font-size: 30px;
@@ -40,6 +41,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <ArticleTitle>{post.frontmatter.title}</ArticleTitle>
           <ArticleDate>{post.frontmatter.date}</ArticleDate>
         </header>
+        <SocialShare post={post} slug={pageContext.slug} />
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr />
       </div>

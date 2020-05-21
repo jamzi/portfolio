@@ -1,14 +1,10 @@
 module.exports = {
   siteMetadata: {
     title: `Janez Čadež Portfolio`,
-    author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
-    },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    description: `Janez Čadež Portfolio`,
+    siteUrl: `https://janez.tech/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `jamziSLO`,
     },
   },
   plugins: [

@@ -8,7 +8,7 @@ The company I work for just moved into new offices and there are two TVs in the 
 
 We got an idea to display daily menus from nearby restaurants to help us decide what to eat for lunch. The scraper would go to each restaurant website and get the content of a daily menu to help us figure out what to eat.
 
-Since it sounded like a cool idea and I want to build a few [side projects](https://devhealth.io/side-projects/), I quietly set out to build an MVP version.
+Since it sounded like a cool idea and I want to build a few [side projects](https://janez.tech/blog/side-projects/), I quietly set out to build an MVP version.
 
 At the end of this article, I'll share a link to GitHub, where you can see or re-use the project for your own needs.
 
