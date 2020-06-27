@@ -22,6 +22,13 @@ const StyledLink = styled(Link)`
   font-size: 1.2rem;
 `
 
+const HireStyledLink = styled(StyledLink)`
+  color: white;
+  background-color: #000;
+  padding: 10px;
+  border-radius: 15px;
+`
+
 const GlobalStyle = createGlobalStyle`
   a {
     color: #000;
@@ -35,6 +42,7 @@ const Layout = ({ children }) => {
       <StyledLink to={`/`}>Home</StyledLink>
       <StyledLink to={`/blog`}>Blog</StyledLink>
       <StyledLink to={`/uses`}>Uses</StyledLink>
+      <HireStyledLink to={`/hire`}>Hire</HireStyledLink>
     </HeaderWrapper>
   )
   return (
