@@ -1,4 +1,4 @@
-import React from "react"
+import * as React from "react"
 import { Link, graphql } from "gatsby"
 import styled from "styled-components"
 
@@ -39,35 +39,49 @@ const StyledLink = styled(Link)`
   box-shadow: "none";
 `
 
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  @media (max-width: 768px) {
+    padding: 0px;
+  }
+`
+
 const BlogIndex = ({ data }) => {
   const posts = data.allMarkdownRemark.edges
 
   return (
     <Layout>
       <SEO title="Blog" />
-      <ArticlesWrapper>
-        <SectionTitle>Articles</SectionTitle>
-      </ArticlesWrapper>
-      {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
-        return (
-          <Article key={node.fields.slug}>
-            <header>
-              <ArticleTitle>
-                <StyledLink to={node.fields.slug}>{title}</StyledLink>
-              </ArticleTitle>
-              <ArticleDate>{node.frontmatter.date}</ArticleDate>
-            </header>
-            <section>
-              <ArticleDescription
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </section>
-          </Article>
-        )
-      })}
+      <Content>
+        <ArticlesWrapper>
+          <SectionTitle>Articles</SectionTitle>
+        </ArticlesWrapper>
+        <div>
+          {posts.map(({ node }) => {
+            const title = node.frontmatter.title || node.fields.slug
+            return (
+              <Article key={node.fields.slug}>
+                <header>
+                  <ArticleTitle>
+                    <StyledLink to={node.fields.slug}>{title}</StyledLink>
+                  </ArticleTitle>
+                  <ArticleDate>{node.frontmatter.date}</ArticleDate>
+                </header>
+                <section>
+                  <ArticleDescription
+                    dangerouslySetInnerHTML={{
+                      __html: node.frontmatter.description || node.excerpt,
+                    }}
+                  />
+                </section>
+              </Article>
+            )
+          })}
+        </div>
+      </Content>
     </Layout>
   )
 }

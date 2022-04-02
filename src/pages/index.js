@@ -1,10 +1,10 @@
-import React from "react"
-import styled from "styled-components"
+import * as React from "react"
 import { graphql } from "gatsby"
+import styled from "styled-components"
 import Img from "gatsby-image"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
 const HomeWrapper = styled.div`
   display: flex;
@@ -66,31 +66,36 @@ const PortfolioImageWrapper = styled.div`
   margin-right: 20px;
 `
 
-export default ({ data }) => (
-  <Layout>
-    <SEO title="Home" />
-    <HomeWrapper>
-      <Content>
-        <Introduction>
-          <Hello>Hello, I'm</Hello>
-          <Name>Janez Čadež</Name>
-        </Introduction>
-        <Description>
-          <div>Software engineer and passionate about all things web.</div>
-          <div>
-            Also a gym enthusiast, self-improvement nerd, and amateur musician.
-          </div>
-        </Description>
-      </Content>
-      <PortfolioImageWrapper>
-        <Img
-          fluid={data.file.childImageSharp.fluid}
-          alt="Janez Čadež portrait"
-        />
-      </PortfolioImageWrapper>
-    </HomeWrapper>
-  </Layout>
-)
+const Index = ({ data }) => {
+  return (
+    <Layout>
+      <Seo title="Home" />
+      <HomeWrapper>
+        <Content>
+          <Introduction>
+            <Hello>Hello, I'm</Hello>
+            <Name>Janez Čadež</Name>
+          </Introduction>
+          <Description>
+            <div>Software engineer and passionate about all things web.</div>
+            <div>
+              Also a gym enthusiast, self-improvement nerd, and amateur
+              musician.
+            </div>
+          </Description>
+        </Content>
+        <PortfolioImageWrapper>
+          <Img
+            fluid={data.file.childImageSharp.fluid}
+            alt="Janez Čadež portrait"
+          />
+        </PortfolioImageWrapper>
+      </HomeWrapper>
+    </Layout>
+  )
+}
+
+export default Index
 
 export const pageQuery = graphql`
   query {

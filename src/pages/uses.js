@@ -8,9 +8,8 @@ const items = {
   Hardware: [
     {
       id: "Laptop",
-      name: "Lenovo Thinkpad T480s",
-      url:
-        "https://www.lenovo.com/us/en/laptops/thinkpad/thinkpad-t-series/ThinkPad-T480s/p/22TP2TT480S",
+      name: "MacBook Pro 14-inch",
+      url: "https://www.apple.com/shop/buy-mac/macbook-pro/14-inch",
     },
     {
       id: "Monitor",
@@ -20,10 +19,8 @@ const items = {
     },
     {
       id: "Keyboard",
-      name: "ThinkPad Compact Bluetooth Keyboard",
-      url:
-        "https://www.amazon.com/ThinkPad-Compact-Bluetooth-Keyboard-TrackPoint/dp/B00C32FWJC",
-      comment: "Lenovo Thinkpad-style keyboard",
+      name: "Magic Keyboard (small)",
+      url: "https://www.apple.com/shop/product/MK2A3LL/A/magic-keyboard-us-english",
     },
     {
       id: "Mouse",
@@ -33,8 +30,7 @@ const items = {
     {
       id: "Headphones #1",
       name: "Sony WH1000XM2",
-      url:
-        "https://www.amazon.com/Sony-Noise-Cancelling-Headphones-WH1000XM2/dp/B074KDJVS2",
+      url: "https://www.amazon.com/Sony-Noise-Cancelling-Headphones-WH1000XM2/dp/B074KDJVS2",
       comment:
         "Must-have noise cancelling headphones for open office. Good alternative to Bose QC35 series",
     },
@@ -53,16 +49,15 @@ const items = {
     },
     {
       id: "Phone",
-      name: "OnePlus 5T",
-      url: "https://www.oneplus.com/global/5t",
+      name: "iPhone 11",
+      url: "https://www.apple.com/shop/buy-iphone/iphone-11",
     },
   ],
   Software: [
     {
       id: "OS",
-      name: "Windows 10",
-      url: "https://www.microsoft.com/sl-si/windows",
-      comment: "Works great with the Thinkpad laptop and has Windows Hello",
+      name: "Mac OS",
+      url: "https://www.apple.com/macos",
     },
     {
       id: "IDE",
@@ -71,8 +66,7 @@ const items = {
     },
     {
       id: "VSCode extensions",
-      name:
-        "Project manager, CSS to JSS, Color Highlight, ESLint, GitLens, Polacode, Prettier, Sort Lines, TODO Highlight, Wrap Console Log",
+      name: "Color Highlight, ESLint, GitHub Copilot, GitLens, One Dark Pro theme, Prettier, Sort lines, TODO Highlight, Wrap Console Log",
       url: "https://marketplace.visualstudio.com/VSCode",
     },
     {
@@ -127,6 +121,16 @@ const ItemComment = styled.div`
   color: #828282;
 `
 
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  @media (max-width: 768px) {
+    padding: 0px;
+  }
+`
+
 export default () => {
   const renderSection = type => {
     return items[type].map(item => (
@@ -147,21 +151,29 @@ export default () => {
   return (
     <Layout>
       <SEO title="Uses" />
-      <TitleWrapper>
-        <Title>What Do I Use?</Title>
-        <UpdatedAt>Updated: May 2020</UpdatedAt>
-      </TitleWrapper>
-      <SectionTitle>Hardware</SectionTitle>
-      {renderSection("Hardware")}
-      <SectionTitle>Software</SectionTitle>
-      {renderSection("Software")}
-      <div>
-        If you like this kind of content check out{" "}
-        <a href="https://uses.tech" target="_blank" rel="noopener noreferrer">
-          uses.tech
-        </a>{" "}
-        for more developer's setups.
-      </div>
+      <Content>
+        <TitleWrapper>
+          <Title>What Do I Use?</Title>
+          <UpdatedAt>Updated: April 2022</UpdatedAt>
+        </TitleWrapper>
+        <div>
+          <SectionTitle>Hardware</SectionTitle>
+          {renderSection("Hardware")}
+          <SectionTitle>Software</SectionTitle>
+          {renderSection("Software")}
+          <div>
+            If you like this kind of content check out{" "}
+            <a
+              href="https://uses.tech"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              uses.tech
+            </a>{" "}
+            for more developer's setups.
+          </div>
+        </div>
+      </Content>
     </Layout>
   )
 }
