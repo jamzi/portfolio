@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
 const items = {
   Hardware: [
@@ -131,7 +131,7 @@ const Content = styled.div`
   }
 `
 
-export default () => {
+const Uses = () => {
   const renderSection = type => {
     return items[type].map(item => (
       <SectionWrapper key={item.id}>
@@ -150,7 +150,7 @@ export default () => {
 
   return (
     <Layout>
-      <SEO title="Uses" />
+      <Seo title="Uses" />
       <Content>
         <TitleWrapper>
           <Title>What Do I Use?</Title>
@@ -177,3 +177,5 @@ export default () => {
     </Layout>
   )
 }
+
+export default Uses

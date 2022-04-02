@@ -1,7 +1,7 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -85,8 +85,8 @@ const Index = ({ data }) => {
           </Description>
         </Content>
         <PortfolioImageWrapper>
-          <Img
-            fluid={data.file.childImageSharp.fluid}
+          <GatsbyImage
+            image={data.file.childImageSharp.gatsbyImageData}
             alt="Janez Čadež portrait"
           />
         </PortfolioImageWrapper>
@@ -101,9 +101,7 @@ export const pageQuery = graphql`
   query {
     file(relativePath: { eq: "portrait.png" }) {
       childImageSharp {
-        fluid(maxWidth: 500, quality: 100) {
-          ...GatsbyImageSharpFluid_tracedSVG
-        }
+        gatsbyImageData(layout: FIXED, placeholder: BLURRED)
       }
     }
   }

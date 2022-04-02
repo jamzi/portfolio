@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 import styled from "styled-components"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
 const ArticlesWrapper = styled.div`
   display: flex;
@@ -54,7 +54,7 @@ const BlogIndex = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Blog" />
+      <Seo title="Blog" />
       <Content>
         <ArticlesWrapper>
           <SectionTitle>Articles</SectionTitle>

@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
 const TitleWrapper = styled.div`
   display: flex;
@@ -47,10 +47,10 @@ const Content = styled.div`
   }
 `
 
-export default () => {
+const Hire = () => {
   return (
     <Layout>
-      <SEO title="Hire" />
+      <Seo title="Hire" />
       <Content>
         <TitleWrapper>
           <Title>Do you need help on your project?</Title>
@@ -95,3 +95,5 @@ export default () => {
     </Layout>
   )
 }
+
+export default Hire
