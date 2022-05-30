@@ -7,5 +7,7 @@
       "groupName": "all non-major dependencies",
       "groupSlug": "all-minor-patch"
     }
-  ]
+  ],
+  "timezone": "Europe/Ljubljana",
+  "schedule": ["every month"]
 }
