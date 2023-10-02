@@ -1,5 +1,5 @@
 ---
-title: Task management
+title: Introduction to React Native
 date: "2023-10-02T22:12:03.284Z"
 description: Introduction to React Native.
 ---
