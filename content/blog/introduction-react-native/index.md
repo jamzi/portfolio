@@ -1,9 +1,8 @@
 ---
 title: Introduction to React Native
 date: "2023-10-02T22:12:03.284Z"
-description: Introduction to React Native.
+description: Learn once, write anywhere.
 ---
-# Introduction to React Native
 
 React Native is a cross-platform mobile framework created by Meta. It enables you to build mobile apps using the JavaScript programming language and the React framework.
 
