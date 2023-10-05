@@ -1,7 +1,7 @@
 ---
 title: React Native setup with Expo
 date: "2023-10-05T22:12:03.284Z"
-description: "DX much wow".
+description: "DX much wow"
 ---
 
 Expo is a set of tools and services built around React Native and native platforms that help you develop, build, and deploy React Native apps.
