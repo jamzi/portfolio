@@ -20,17 +20,13 @@ You'll need either an iPhone, Android device, or Android/iOS simulator. You can 
 
 You can get started with Expo by cloning the project I created on GitHub. I've created a repository with fixed package versions to keep this article relevant for longer.
 
-```
-git clone https://github.com/jamzi/introduction-to-react-native-with-expo
-```
+> git clone https://github.com/jamzi/introduction-to-react-native-with-expo
 
 And checkout to branch `1-react-native-setup-with-expo`.
 
 I've used Expo CLI to scaffold a new Expo project with TypeScript. If you want to try out the CLI tool, use the following command:
 
-```
-npx create-expo-app -t expo-template-blank-typescript
-```
+> npx create-expo-app -t expo-template-blank-typescript
 
 **Tip**: I recommend using TypeScript with React Native projects, as it will help you write better and more robust JavaScript code.
 
@@ -56,9 +52,7 @@ We will run the app in the Expo Go sandbox application, which can be installed o
 
 You can run the following command:
 
-```
-yarn start
-```
+> yarn start
 
 This will call the internal tooling (Metro bundler) to bundle and serve the application, and Expo Go app will see and connect to the running development server. This is similar to running a NextJS or any other web framework with its development server and then connecting to it.
 
