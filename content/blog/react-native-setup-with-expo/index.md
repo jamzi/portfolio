@@ -1,7 +1,7 @@
 ---
 title: React Native setup with Expo
 date: "2023-10-05T22:12:03.284Z"
-description: "DX much wow"
+description: DX much wow.
 ---
 
 Expo is a set of tools and services built around React Native and native platforms that help you develop, build, and deploy React Native apps.
@@ -20,8 +20,7 @@ You'll need either an iPhone, Android device, or Android/iOS simulator. You can 
 
 You can get started with Expo by cloning the project I created on GitHub. I've created a repository with fixed package versions to keep this article relevant for longer.
 
-
-```markdown
+```
 git clone https://github.com/jamzi/introduction-to-react-native-with-expo
 ```
 
@@ -29,7 +28,7 @@ And checkout to branch `1-react-native-setup-with-expo`.
 
 I've used Expo CLI to scaffold a new Expo project with TypeScript. If you want to try out the CLI tool, use the following command:
 
-```markdown
+```
 npx create-expo-app -t expo-template-blank-typescript
 ```
 
@@ -39,15 +38,15 @@ npx create-expo-app -t expo-template-blank-typescript
 
 Let’s take a look at the generated code that `create-expo-app` produces. If you have already worked with JS projects, it will look similar with:
 
-*   `package.json`: JSON file with basic app info and dependencies.
-*   `tsconfig.json`: TypeScript configuration file with some basic generated options.
-*   `babel.config.js`: Babel JavaScript compiler config file, sometimes required after installing a package that requires extra compiler work (like animation libraries).
+- `package.json`: JSON file with basic app info and dependencies.
+- `tsconfig.json`: TypeScript configuration file with some basic generated options.
+- `babel.config.js`: Babel JavaScript compiler config file, sometimes required after installing a package that requires extra compiler work (like animation libraries).
 
 Other folders/files include:
 
-*   `app.json`: This one is specific to Expo projects, it's a configuration file where you define the app name, package name (com.example.test), and other options.
-*   `App.tsx`: The first file that gets called in the React Native application.
-*   `assets` folder: You would place images, icons, and fonts here.
+- `app.json`: This one is specific to Expo projects, it's a configuration file where you define the app name, package name (com.example.test), and other options.
+- `App.tsx`: The first file that gets called in the React Native application.
+- `assets` folder: You would place images, icons, and fonts here.
 
 We will focus on the `App.tsx` file for now, so you don’t need to worry too much about the other files and folders.
 
@@ -57,7 +56,7 @@ We will run the app in the Expo Go sandbox application, which can be installed o
 
 You can run the following command:
 
-```markdown
+```
 yarn start
 ```
 
@@ -67,7 +66,7 @@ You can open the app by going to Expo Go and selecting a development server or b
 
 ## Challenge
 
-Try to add a button and display an alert dialog. 
+Try to add a button and display an alert dialog.
 
 **Hint**: Check out React Native docs for help.
 
