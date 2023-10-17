@@ -12,8 +12,13 @@ The StyleSheet API is exposed by React Native, allowing you to declare the style
 
 ```js
 const App = () => (
-  <View style={{ flex: 1, backgroundColor: "red" }}>
-    <Text style={{ fontSize: 20 }}>React Native</Text>
+  <View
+    style={{
+      flex: 1,
+      backgroundColor: "lightblue",
+    }}
+  >
+    <Text>Home Screen</Text>
   </View>
 )
 ```
@@ -30,6 +35,8 @@ Under the hood, React Native uses the Yoga layout engine, built internally by Me
 
 **Tip**: I would encourage you to avoid writing too many inline styles and define most of the styles inside the `StyleSheet.create` method. It will make your code cleaner. You can then add some dynamic styles inline when need to access different parts of the props or state. I usually add them at the end of the file because my mentality is that when you navigate to a file, you want to see the component code first.
 
+If you want to follow along with the code example, you can clone the [repo](https://github.com/jamzi/introduction-to-react-native-with-expo) and checkout to the `3-user-interface` branch.
+
 ```js
 import { StyleSheet, Text, View } from "react-native"
 
@@ -42,7 +49,8 @@ const App = () => (
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "red",
+    backgroundColor: "lightblue",
+    paddingHorizontal: 20,
   },
   text: { fontSize: 20 },
 })
@@ -69,10 +77,7 @@ For this, we will use the some helpers from the `react-native-safe-area-context`
 This library provides a helper React hook called `useSafeAreaInsets`, which is the best way to get the safe area measurements and use them on a screen.
 
 ```js
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from "react-native-safe-area-context"
+import { useSafeAreaInsets } from "react-native-safe-area-context"
 
 const App = () => {
   const insets = useSafeAreaInsets()
@@ -86,7 +91,8 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "red",
+    backgroundColor: "lightblue",
+    paddingHorizontal: 20,
   },
   text: { fontSize: 20 },
 })
@@ -96,7 +102,7 @@ In the example above you can see how we can combine the container styles with so
 
 ## Challenge
 
-Add an image from a remote source and rotate it by 45 degrees.
+Add an image from a local source (assets folder) and rotate it by 45 degrees.
 
 **Need a hint?** Check out the [React Native's Image component docs](https://reactnative.dev/docs/image/).
 
