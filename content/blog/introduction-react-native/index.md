@@ -23,6 +23,7 @@ React Native is a cross-platform mobile framework created by Meta. It enables yo
 React Native is not limited to any particular business sector. You can find applications in various industries, including eCommerce, social media, fintech, and more.
 
 Some prominent apps built with React Native include:
+
 - [Shopify](https://shopify.engineering/migrating-our-largest-mobile-app-to-react-native)
 - [Discord](https://discord.com/blog/android-react-native-framework-update)
 - [Coinbase](https://www.coinbase.com/blog/announcing-coinbases-successful-transition-to-react-native)
@@ -30,17 +31,23 @@ Some prominent apps built with React Native include:
 
 You can explore more React Native apps in the [showcase](https://reactnative.dev/showcase).
 
+## How Does It Work Under the Hood?
+
+**Deep dive**: React Native, which is built upon the React framework, operates using a JavaScript codebase for executing the app's core logic. Unlike other cross-platform development frameworks, React Native renders native components by invoking platform-spceific APIs.
+
 ## Where Can I Learn More?
 
 If you don't have prior experience with React or JavaScript, I would advise you to learn the fundamentals of these technologies before diving into React Native.
 
 If you are already familiar with React, you can start with the following documentation:
+
 - [React Native Docs](https://reactnative.dev/)
 - [Expo Docs](https://docs.expo.dev/)
 
 ## Staying Updated with React Native Changes
 
 To keep up with changes in React Native, consider the following sources:
+
 - Follow React Native developers on platforms like Twitter.
 - Listen to podcasts, such as [React Native Radio](https://reactnativeradio.com/).
 - Subscribe to weekly newsletters that provide updates on React and React Native news, like [This Week in React](https://thisweekinreact.com/).

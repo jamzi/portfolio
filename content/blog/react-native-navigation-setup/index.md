@@ -12,7 +12,9 @@ This is where navigation libraries come to the rescue. In this blog post, we wil
 
 Before diving into React Navigation, we need to ensure we have the necessary packages installed:
 
-> GitHub [link](https://github.com/jamzi/introduction-to-react-native-with-expo): Introduction to React Native with Expo (checkout to 2-navigation-start and run npm install).
+If you want to follow along with the code example, you can clone the [repo](https://github.com/jamzi/introduction-to-react-native-with-expo).
+
+Checkout to the branch `2-navigation-start` and install the packages (`yarn / npm install`).
 
 Alternatively, you can manually install the required packages using the following command:
 

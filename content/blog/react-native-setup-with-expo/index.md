@@ -22,7 +22,7 @@ You can get started with Expo by cloning the project I created on GitHub. I've c
 
 > git clone https://github.com/jamzi/introduction-to-react-native-with-expo
 
-And checkout to branch `1-react-native-setup-with-expo`.
+Checkout to the branch `1-react-native-setup-with-expo` and install the packages (`yarn / npm install`).
 
 I've used Expo CLI to scaffold a new Expo project with TypeScript. If you want to try out the CLI tool, use the following command:
 

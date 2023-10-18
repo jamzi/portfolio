@@ -35,7 +35,9 @@ Under the hood, React Native uses the Yoga layout engine, built internally by Me
 
 **Tip**: I would encourage you to avoid writing too many inline styles and define most of the styles inside the `StyleSheet.create` method. It will make your code cleaner. You can then add some dynamic styles inline when need to access different parts of the props or state. I usually add them at the end of the file because my mentality is that when you navigate to a file, you want to see the component code first.
 
-If you want to follow along with the code example, you can clone the [repo](https://github.com/jamzi/introduction-to-react-native-with-expo) and checkout to the `3-user-interface` branch.
+If you want to follow along with the code example, you can clone the [repo](https://github.com/jamzi/introduction-to-react-native-with-expo).
+
+Checkout to the branch `3-user-interface-start` and install the packages (`yarn / npm install`).
 
 ```js
 import { StyleSheet, Text, View } from "react-native"
