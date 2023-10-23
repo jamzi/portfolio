@@ -28,10 +28,10 @@ export const metadata: Metadata = {
     default: "Janez Čadež",
     template: "%s | Janez Čadež",
   },
-  description: "Developer, writer, and creator.",
+  description: "Maker, software engineer and traveler.",
   openGraph: {
     title: "Janez Čadež",
-    description: "Developer, writer, and creator.",
+    description: "Maker, software engineer and traveler.",
     url: "https://janez.tech",
     siteName: "Janez Čadež",
     locale: "en_US",
