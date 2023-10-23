@@ -21,7 +21,7 @@ export async function GET(req: NextRequest) {
           flexDirection: "column",
           alignItems: "flex-start",
           justifyContent: "center",
-          backgroundImage: "url(https://janez.tech/og-bg.png)",
+          backgroundImage: "url(https://janez.tech/og-bg.jpeg)",
         }}
       >
         <div
@@ -33,7 +33,7 @@ export async function GET(req: NextRequest) {
             fontFamily: "Montserrat",
             letterSpacing: "-0.05em",
             fontStyle: "normal",
-            color: "white",
+            color: "black",
             lineHeight: "120px",
             whiteSpace: "pre-wrap",
           }}
