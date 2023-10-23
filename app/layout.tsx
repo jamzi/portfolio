@@ -1,8 +1,9 @@
-import "./global.css";
-import clsx from "clsx";
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import Sidebar from "./components/sidebar";
+import "./global.css"
+import clsx from "clsx"
+import type { Metadata } from "next"
+import localFont from "next/font/local"
+import Sidebar from "./components/sidebar"
+import { Analytics } from "@vercel/analytics/react"
 
 const montserrat = localFont({
   src: [
@@ -19,7 +20,7 @@ const montserrat = localFont({
   ],
   variable: "--font-montserrat",
   display: "swap",
-});
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://janez.tech"),
@@ -55,12 +56,12 @@ export const metadata: Metadata = {
     google: "eZSdmzAXlLkKhNJzfgwDqWORghxnJ8qR9_CHdAh5-xw",
     yandex: "14d2e73487fa6c71",
   },
-};
+}
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html
@@ -71,8 +72,9 @@ export default function RootLayout({
         <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
           <Sidebar />
           {children}
+          <Analytics />
         </main>
       </body>
     </html>
-  );
+  )
 }
