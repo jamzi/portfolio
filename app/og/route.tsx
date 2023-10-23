@@ -33,8 +33,8 @@ export async function GET(req: NextRequest) {
             fontFamily: "Montserrat",
             letterSpacing: "-0.05em",
             fontStyle: "normal",
-            color: "black",
-            lineHeight: "120px",
+            color: "white",
+            lineHeight: "150px",
             whiteSpace: "pre-wrap",
           }}
         >
