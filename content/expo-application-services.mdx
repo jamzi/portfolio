@@ -1,0 +1,73 @@
+---
+title: Expo Application Services
+publishedAt: "2023-11-06T22:12:03.284Z"
+summary: Vercel, but for React Native.
+---
+
+Building and publishing React Native applications slightly varies between platforms and involves several steps.
+
+Typically, the process includes building the app, signing it with a key, archiving, and then uploading it to a distribution portal such as App Store Connect or Google Play Console.
+
+The build process can be set up manually using a tool called Fastlane, or we can opt for solutions provided by the Expo team, like EAS Build and EAS Submit, which simplify many of these tasks and enhance the developer experience.
+
+## EAS (Expo Application Services)
+
+As discussed in a previous blog post about the [development client](https://www.janez.tech/blog/using-external-packages-react-native#expo-dev-client), we can build apps in the cloud with EAS (Expo Application services).
+
+To get started, install the EAS CLI tool with `npm install -g eas-cli@5.4.0`, create a free Expo account, and log in via the CLI using `eas login`.
+
+The EAS CLI tool allows you to initiate a remote build with EAS or conduct it locally.
+
+## eas.json
+
+The eas.json configuration file allows you to set up your cloud builds and submissions for EAS. It contains configuration options for each EAS product, including common settings (like `distribution`) and platform-specific ones (such as `android.buildType` for the Android app file format).
+
+```json
+{
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+    "production": {
+      "distribution": "store",
+      "android": {
+        "buildType": "app-bundle"
+      }
+    }
+  }
+}
+```
+
+In the example above, there are two distinct build profiles: development, which is used to create a `development` client build, and `production`, which compiles the release version of the app for the app stores.
+
+Execute a build using a specific profile with the command `eas build --profile development`.
+
+## Expo Dashboard
+
+The Expo dashboard is a user interface where your project appears once you execute EAS commands in the CLI. It provides an overview of your builds, App Store and Play Console submissions, development builds, over-the-air updates, and more.
+
+<Image
+  alt={`Expo EAS dashboard UI`}
+  src={`/images/expo-application-services/expo-dashboard-ui.png`}
+  width={1456 / 2}
+  height={819 / 2}
+/>
+
+## Pricing
+
+EAS offers a free tier that currently includes 30 app builds per month, with a maximum of 15 iOS builds. Typically, this suffices for several development client builds and production app compilations. However, free tier builds are queued with a lower priority compared to paid builds.
+
+For additional builds, concurrent build capabilities, and reduced wait times, consider subscribing to a paid plan.
+
+<Callout emoji="💡">
+
+Subscribing to a paid plan also grants access to direct [support](https://expo.dev/contact) through the website form. The support team provides detailed technical assistance, which is invaluable for resolving queries related to Expo and React Native.
+
+</Callout>
+
+## Resources
+
+- eas.json reference: https://docs.expo.dev/eas/json
+
+- EAS pricing: https://expo.dev/pricing
