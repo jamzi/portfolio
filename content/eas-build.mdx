@@ -1,0 +1,105 @@
+---
+title: EAS Build
+publishedAt: "2023-11-13T22:12:03.284Z"
+summary: iOS builds without a MacBook?
+---
+
+EAS Build is a cloud-based build service for React Native applications. Instead of managing builds locally, you can leverage Expo's cloud infrastructure for this purpose.
+
+One significant advantage of EAS Build is its capacity to streamline the build and deployment process in the React Native workflow. It eliminates the need for multiple tools like Fastlane, XCode, Android Studio, and others for building React Native applications.
+
+However, a potential drawback is the cost associated with running builds on a cloud infrastructure. Despite this, the simplicity and convenience offered by EAS Build justify its use for most applications, except perhaps for very large applications that might benefit more from a customized build setup.
+
+<Callout emoji="💡">
+
+EAS Build supports building both Expo and plain React Native applications.
+
+</Callout>
+
+## How it works
+
+EAS Build initiates each build in a newly created Docker container or VM. It uses either a MacOS runner (ARM-based) for iOS or a Linux machine for Android builds.
+
+The process involves installing NPM packages, executing the `prebuild` command for managed projects (standard Expo project), generating iOS and Android folders, signing the app, and then running the build commands.
+
+This description has been simplified; the actual process includes additional tasks such as caching, installing iOS pods, and executing build hooks.
+
+<Callout emoji="🔎">
+
+EAS Build utilizes Fastlane for executing certain commands, like build and app signing. The build workflows are customizable: [EAS Build Customization Documentation](https://docs.expo.dev/custom-builds/schema/)
+
+</Callout>
+
+## Logs
+
+Build logs can be accessed via the Expo Dashboard. This feature is invaluable for troubleshooting failed builds and obtaining detailed environment and runtime information for debugging purposes.
+
+## Builds
+
+A previous blog post detailed our experience creating a development client build using EAS Build, specifically when incorporating [external packages in React Native](https://www.janez.tech/blog/using-external-packages-react-native).
+
+### Environment variables
+
+#### Local variables
+
+As of Expo version 49, standard `.env` files can be used to declare environment variables.
+
+Variables prefixed with **EXPO_PUBLIC_** are publicly exposed within the application code. These public variables typically include information safe for user visibility, such as API URLs, public keys, and identifiers.
+
+#### Variables on EAS
+
+The same public environment variables can be specified in the `eas.json` file. This is useful if you have multiple environment (called `profiles` in EAS), where you have different value per environment.
+
+```json
+{
+  "build": {
+    "development": {
+      "env": {
+        "EXPO_PUBLIC_URL": "testUrlDev"
+      }
+    },
+    "production": {
+      "env": {
+        "EXPO_PUBLIC_URL": "testUrlProd"
+      }
+    }
+  }
+}
+```
+
+#### Secrets
+
+Certain **private** environment variables, like the Sentry Auth token (SENTRY_AUTH_TOKEN) used for uploading source maps, are necessary during the build process.
+
+These can be uploaded directly to the EAS Dashboard (EAS Secrets) and are automatically injected during the build.
+
+<Image
+  alt={`EAS dashboard - EAS Secrets`}
+  src={`/images/eas-build/eas-secrets.png`}
+  width={1456 / 2}
+  height={819 / 2}
+/>
+
+## Running the EAS builds locally
+
+If your organization restricts the use of external build services or to mitigate costs, EAS builds can also be executed locally.
+
+There are two methods for local compilation:
+
+- The first involves running the prebuild command followed by `expo run:ios` or `expo run:android`. This process generates the required Android and iOS folders, simulating the "plain React Native" approach.
+
+- The second method uses the development client but builds it locally instead of using the EAS cloud service. Using the `--local` flag with the eas build command replicates the cloud build workflow locally. The full command are `eas build -p ios --local` or `eas build -p android --local`.
+
+<Callout emoji="💡">
+
+To execute local builds, you must have the [full React Native setup with native counterparts](https://reactnative.dev/docs/environment-setup).
+
+</Callout>
+
+## Resources
+
+eas.json reference: https://docs.expo.dev/eas/json/#eas-build
+
+EAS pricing: https://expo.dev/pricing
+
+Environment variables: https://docs.expo.dev/guides/environment-variables/
