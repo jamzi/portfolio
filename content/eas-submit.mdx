@@ -1,0 +1,69 @@
+---
+title: Automating React Native app submissions
+publishedAt: "2023-11-27T22:12:03.284Z"
+summary: No more waiting for builds to complete.
+---
+
+In our [previous blog post](https://www.janez.tech/blog/eas-build), we explored how to build applications using the EAS Build service. This process generates artifacts (.aab for Android and .ipa for iOS), which must be uploaded to the app stores for user distribution.
+
+Manually uploading these artifacts, or using internal tools like Transporter on MacOS, can be tedious, error-prone, and time-consuming. It's imperative to automate this process for efficiency.
+
+This is solved with EAS Submit, a cloud-based solution that automatically uploads your build artifacts. It integrates seamlessly with other EAS products, offering a streamlined workflow.
+
+## Setup
+
+To enable programmatic artifact uploads to the app stores, API access keys and service accounts are necessary for authorization.
+
+We’ll guide you through generating all the required keys/accounts, downloading them, and uploading them to the EAS dashboard for future submissions.
+
+### Android setup
+
+For Android, follow these [steps](https://docs.expo.dev/submit/android/) to create a Google Service Account with the necessary permissions.
+
+After obtaining the .json file, upload it to the EAS dashboard under Project Settings -> Credentials -> Android -> Google Service Account Key.
+
+<Callout emoji="💡">
+
+Due to Google Play Store API limitations, a manual upload of the initial Android build file (.aab) is required. You can simply use the Google Play Store’s drag-and-drop interface for this.
+
+</Callout>
+
+### iOS setup
+
+For iOS submissions, follow these [steps](https://docs.expo.dev/submit/ios/) to create an App Store Connect API key.
+
+Upon obtaining this .json file, upload it to the EAS dashboard under Project Settings -> Credentials -> iOS -> App Store Connect API Key.
+
+## Running the commands
+
+After building with `eas build`, submit the build artifact using `eas submit`.
+
+## Automatic submission
+
+Typically, building and uploading to app stores are two separate steps. However, you can merge them into one with the `--auto-submit` flag in the EAS build command.
+
+This automation greatly simplifies the process. The command is as follows:
+
+`eas build --auto-submit`
+
+<Callout emoji="💡">
+
+For more complex setups, such as different apps for each profile, customize the submission part with various profiles, similar to the EAS Build customization.
+
+</Callout>
+
+## Configuration
+
+Uploading your app store credentials to the EAS dashboard ensures their automatic usage during submission.
+
+Yet, you can tailor EAS Submit further via changes in the `eas.json` file, like customizing the submit profile or using local credentials. The comprehensive list of options is detailed [here](https://docs.expo.dev/submit/eas-json/).
+
+## Building and submitting locally
+
+As mentioned in the previous post, it's possible to execute EAS commands locally. If you have a local build artifact, the same EAS command can be used to submit it to the app stores.
+
+## Resources
+
+Automating submissions: [Expo Documentation](https://docs.expo.dev/build/automate-submissions/)
+
+EAS submit build command: [GitHub - Expo EAS CLI](https://github.com/expo/eas-cli#eas-submit)
