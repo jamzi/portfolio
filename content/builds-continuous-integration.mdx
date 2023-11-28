@@ -1,0 +1,126 @@
+---
+title: Executing EAS builds via GitHub Actions
+publishedAt: "2023-11-30T22:12:03.284Z"
+summary: Trigger a build upon merging your code.
+---
+
+In the [previous blog post](https://www.janez.tech/blog/eas-submit), we learned how to submit our React Native apps via the EAS Submit command.
+
+It still required us to run the EAS commands manually, which we will improve with this part of the series. We'll take a look at setting up the continuous integration pipeline with EAS and GitHub Actions.
+
+## Prerequesites
+
+- Set up signing keys. We can run `eas credentials` to set these up before executing our first CI build.
+
+- Obtain an [Expo token](https://docs.expo.dev/accounts/programmatic-access/#personal-access-tokens). This allows CI to access Expo services programmatically.
+
+## Version management
+
+<Callout emoji="💡">
+
+The versioning in mobile apps consists of the primary version (for example, 1.0.0) and the build number (also known as the version code on Android). This system allows you to upload multiple revisions of the same primary version. The build number should be incremented for every release, and platforms like Android will prevent the installation of an application with the same or lower version code.
+
+</Callout>
+
+In Expo apps, can manually manage it via the version field in `app.json (ios/android)` and the `ios.buildNumber` and `android.versionCode`.
+
+EAS also offers remote version management, which automatically increments the `buildNumber` when you create a production build.
+
+We typically opt for this option, as it still allows you to set the primary version, but takes care of incrementing the version code automatically.
+
+## Initiating EAS Build from CI
+
+The process is similar to running the EAS CLI from your development machine.
+
+We can select any CI environment that supports running a Linux machine with Node installed, which is all we need to execute the EAS CLI.
+
+**GitHub Actions** is one such environment. Here is an example build file (.yml configuration file) that we can create and place in the `.github/workflows/eas-build` directory:
+
+```yml
+name: EAS Build
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    name: Install and build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: npm
+      - name: Setup Expo and EAS
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+      - name: Install dependencies
+        run: npm ci
+      - name: Build on EAS
+        run: eas build --platform all --non-interactive
+```
+
+If we examine the script together, we are creating a build that can be manually triggered (the `workflow_dispatch` part). The workflow has one job called "build" and it sets up Node on the latest Ubuntu machine, installs the Expo EAS CLI (inside `expo/expo-github-action`), and executes the `eas build` with the `non-interactive` flag, which is required, as the CI cannot prompt us for any changes during the build.
+
+## Git Workflows
+
+Once we have a team working on our React Native app, we might benefit from further automation of the build and deploy process. One of the ways to do this is by triggering the CI on different git workflows. This is especially useful when we have multiple environments that we need to publish the app to, such as development, staging, and production.
+
+For instance, we can trigger the builds when we merge the code to the main branch, which could create a staging build. The code change for this would look like this in the GitHub actions:
+
+```yml
+name: Build and Submit staging
+on:
+  push:
+    branches:
+      - "main"
+```
+
+<Callout emoji="💡">
+
+When developing a mobile app, we often have at least two environments. Typically, we will set up the CI to trigger a staging build when some code is merged to the main branch. This could indicate a new staging release, which will go to the QA for manual testing. Once we have a green light to go to production, we will create a tag from the main branch and name it with the new version.
+
+<br />
+
+Extra points for setting up the CI to use the branch tag name as the version in the app.json file.
+
+</Callout>
+
+## Simplifying Github Workflows
+
+With multiple app environments, it’s beneficial to simplify the GitHub workflows. This can be achieved by creating separate workflows for each environment. For instance, you can have a workflow for the staging environment and another for the production environment. Each workflow can be triggered by different events, such as merging to the main branch or creating a new tag.
+
+Main build file could be similar to this:
+
+```yml
+name: "EAS Build"
+on:
+  workflow_call:
+    inputs:
+      profile:
+        required: true
+        type: string
+  ...
+```
+
+And then the staging build file can provide the "profile" variable:
+
+```yml
+name: 'Staging Build'
+jobs:
+  eas-build:
+    name: 'Build and Submit'
+    uses: ./.github/workflows/eas-build.yml
+    with:
+      profile: staging
+  ...
+```
+
+Remember, the key to successful CI/CD is automation and simplicity. The easier it is to manage and understand your workflows, the more efficient your development process will be.
+
+## Resources
+
+Programmatic access: https://docs.expo.dev/accounts/programmatic-access/#personal-access-tokens
+
+Building on CI docs: https://docs.expo.dev/build/building-on-ci/
