@@ -1,0 +1,154 @@
+---
+title: Streamlining React Native Styling
+publishedAt: "2023-12-11T22:12:03.284Z"
+summary: The built-in StyleSheet API isn't your only option.
+---
+
+There are several methods to style React Native applications. Utilizing a prebuilt design library for your designs is a viable option, especially if you don't have custom designs or if you're not particularly skilled at designing the app yourself.
+
+If you do have a design, your first choice could be the built-in StyleSheet, a reliable choice for providing styles to the elements on the screen.
+
+We'll next explore specialized libraries that can implement a design system, simplifying the process of adding new components or maintaining existing ones.
+
+## Styling an app without custom designs
+
+If your project doesn't require custom styles, such as a side project, I recommend using a prebuilt design library, like [React Native Paper](https://reactnativepaper.com/) or similar.
+
+These libraries typically adhere to a preexisting design system, which can expedite development. They are also thoroughly tested, reducing the likelihood of UI related bugs.
+
+The downside is that we are confined to a specific look, making modifications challenging.
+
+## Developing a custom design system
+
+Many work projects will provide you with designs to implement in your app. These are usually presented in a design tool, like Figma. The optimal way to develop a design is by using an existing (Shopify Polaris, Material Design) or our own design system.
+
+Many design agencies base their projects on a modified existing design system, as it provides them with the most common components and design tokens (decisions that make up a design system's visual style).
+
+## Tools to develop design system in React Native
+
+Once we have our design system in Figma (colors, spacings, border radiuses, etc.), we can start exploring tools to transfer it to the React Native apps. We could do it with the built-in StyleSheet, but it would be time-consuming and it's not designed for this purpose by default.
+
+One of the best tools I've discovered for implementing design systems is Shopify's [Restyle](https://shopify.github.io/restyle/). It's an NPM library that allows you to define your theme, create base components that implement the theme, and also define multiple variants of the component. For instance, we usually have a few variants of buttons, like primary, secondary, tertiary, and so on.
+
+This enables us to construct UIs like legos from prebuilt components and avoid much of the repetition of style definitions that occur with the StyleSheet API. It also supports changing the theme on runtime, so all you dark mode enthusiasts can use it too.
+
+### Defining the theme
+
+We begin by defining a theme with the createTheme method.
+
+```js
+import { createTheme } from "@shopify/restyle"
+
+const palette = {
+  purpleLight: "#8C6FF7",
+  purplePrimary: "#5A31F4",
+  purpleDark: "#3F22AB",
+
+  white: "#F0F2F3",
+}
+
+const theme = createTheme({
+  colors: {
+    mainBackground: palette.white,
+    cardPrimaryBackground: palette.purpleLight,
+    buttonPrimaryBackground: palette.purplePrimary,
+    buttonSecondaryBackground: palette.purpleDark,
+    buttonPrimary: palette.white,
+  },
+  borderRadii: {
+    sm: 8,
+    md: 16,
+    lg: 24,
+    xl: 40,
+  },
+  spacing: {
+    sm: 8,
+    md: 16,
+    lg: 24,
+    xl: 40,
+  },
+  textVariants: {
+    header: {
+      fontWeight: "bold",
+      fontSize: 34,
+    },
+    body: {
+      fontSize: 16,
+      lineHeight: 24,
+    },
+    defaults: {},
+  },
+  buttonVariants: {
+    primary: {
+      backgroundColor: "buttonPrimaryBackground",
+      color: "buttonPrimary",
+      colorDisabled: "buttonPrimary",
+    },
+    secondary: {
+      backgroundColor: "buttonSecondaryBackground",
+      color: "buttonPrimary",
+      colorDisabled: "buttonPrimary",
+    },
+  },
+})
+```
+
+The theme can consist of a color palette, color definitions (our custom variables that implement a color palette), and other design tokens like border radii, spacing, etc.
+
+We also define different variants in the theme, like text variants or button variants, where we define a variant name with specific style properties and also a defaults property which is shared among the variants.
+
+<Callout emoji="💡">
+
+Here's where the magic happens: when our palette changes, there is a single point to change the color throughout the entire app. No more searching and replacing across the app, hoping not to break something.
+
+</Callout>
+
+### Implementing the basic components
+
+The basic components that can be created by Restyle are Box and Text. Text is self-explanatory, and Box is a substitute for View.
+
+We can add additional styles to the Box or any Restyle created component by adding the property to the JSX element.
+
+```js
+<Box flexDirection="row" marginVertical="xl" />
+```
+
+As you can see, we can use any style property that we would use for the View component. And we are already using the design system values for `marginVertical`, which keeps our designs consistent.
+
+The styles are added as properties to JSX elements, you can also use the shorthands, for example `marginTop` can be adjusted to `mt`, which is reminiscent of the Tailwind style.
+
+## Developing the components in isolation
+
+You can implement the components on the page when you need them, or extract them to a separate, dedicated screen where you can create and test them in isolation. This requires some extra setup, but makes developing the components much easier, as you don't need to have a specific screen opened in order to test and develop all the cases.
+
+Similar to web projects, this can be done in Storybook. If you've worked on web projects before, you may already be familiar with Storybook.
+
+Storybook can be installed by following the link [here](https://github.com/storybookjs/react-native). As React Native rendering is more complex than web app's rendering, the maintainers of the React Native version of Storybook are a bit behind the web version.
+
+## Storybook
+
+In Storybook, you implement the "stories" which represent the different states of your components. For example, for the button component, you could have "primary", "secondary" states, which would correspond to two stories added.
+
+```js
+import { MyButton } from "./Button"
+
+export default {
+  title: "components/MyButton",
+  component: MyButton,
+}
+
+export const Basic = args => <MyButton {...args} />
+
+Basic.args = {
+  text: "Hello World",
+  color: "purple",
+}
+```
+
+There are a few options on how to run Storybook for React Native. You could have a dedicated NPM script in your package.json that would set an environment variable which is then used in the startup point of the app to show either Storybook or your app.
+
+## Expo and Storybook
+
+Another useful extension of the Storybook workflow is to leverage Expo's Dev Client and extend the dev menu that pops up when you shake the device (or toggle the menu) and add your Storybook toggle there.
+
+This was done by Marcelo and can be found [here](https://twitter.com/marceloterreiro/status/1714620600516272360), the code for this is available as the first reply to his tweet.
