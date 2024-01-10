@@ -1,12 +1,12 @@
 [
-    {
-      "relation": ["delegate_permission/common.handle_all_urls"],
-      "target": {
-        "namespace": "android_app",
-        "package_name": "com.jamzi.testlinks",
-        "sha256_cert_fingerprints": [
-          "BB:BB:2B:20:5E:3E:60:4F:6B:99:8E:F1:54:43:86:16:3B:FF:12:B3:98:A7:CD:9C:AD:D7:4D:5C:02:CB:3A:A7"
-        ]
-      }
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.jamzi.testdeeplink",
+      "sha256_cert_fingerprints": [
+        "25:AA:71:42:AE:30:2A:FF:E1:19:66:49:78:2E:2D:7F:55:67:E1:5D:98:C0:32:E0:77:60:4E:66:AB:DE:CC:2A"
+      ]
     }
-  ]
+  }
+]
