@@ -28,10 +28,12 @@ export const metadata: Metadata = {
     default: "Janez Čadež",
     template: "%s | Janez Čadež",
   },
-  description: "Maker, software engineer and traveler.",
+  description:
+    "A software engineer and React Native lead at Povio, creating innovative solutions. An entrepreneur in free time, embracing challenges and personal growth.",
   openGraph: {
     title: "Janez Čadež",
-    description: "Maker, software engineer and traveler.",
+    description:
+      "A software engineer and React Native lead at Povio, creating innovative solutions. An entrepreneur in free time, embracing challenges and personal growth.",
     url: "https://janez.tech",
     siteName: "Janez Čadež",
     locale: "en_US",

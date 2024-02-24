@@ -1,15 +1,14 @@
-import { allBlogs } from "contentlayer/generated";
+import { allBlogs } from "contentlayer/generated"
 
 export default async function sitemap() {
-  const blogs = allBlogs.map((post) => ({
+  const blogs = allBlogs.map(post => ({
     url: `https://janez.tech/blog/${post.slug}`,
-    lastModified: post.publishedAt,
-  }));
+    lastModified: new Date(post.publishedAt),
+  }))
 
-  const routes = ["", "/blog", "/uses"].map((route) => ({
+  const routes = ["", "/blog", "/uses"].map(route => ({
     url: `https://janez.tech${route}`,
-    lastModified: new Date().toISOString().split("T")[0],
-  }));
+  }))
 
-  return [...routes, ...blogs];
+  return [...routes, ...blogs]
 }

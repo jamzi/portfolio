@@ -1,5 +1,5 @@
-import Image from "next/image";
-import me from "public/images/home/me.jpg";
+import Image from "next/image"
+import me from "public/images/home/me.jpg"
 
 export default function Page() {
   return (
@@ -11,15 +11,37 @@ export default function Page() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           <div className="col-start-1 col-end-3 md:col-start-1 md:col-end-3">
             <p className="prose prose-neutral mb-3">
-              {`A software engineer who thrives on building projects and bringing ideas to life.`}
+              <span className="mr-2">💻</span>
+              <span>
+                <span className="mr-1">
+                  A software engineer, who thrives on building projects and
+                  bringing ideas to life. Currently, I’m leading the way as a
+                </span>
+                <span className="font-bold">
+                  React and React Native developer at{" "}
+                  <a href="https://povio.com/">Povio</a>
+                </span>
+                , where I apply my skills and knowledge to create innovative
+                solutions.`
+              </span>
+            </p>
+            <p className="prose prose-neutral mb-3">
+              🚀
+              {` In my free time, I channel my entrepreneurial spirit into side
+              projects, always seeking new opportunities to learn and grow. I
+              believe that every challenge is a stepping stone to success, and
+              I’m not afraid to take the leap.`}
             </p>
             <p className="prose prose-neutral">
-              I also like the challenge of climbing, constantly seeking personal
-              growth, and exploring the hidden gems our world has to offer.
+              🌎{" "}
+              {`Beyond the world of code, I find joy in the challenge of climbing and
+              constantly seeking personal growth. I’m also an explorer at heart,
+              always on the lookout for the hidden gems our world has to offer.
+              `}
             </p>
           </div>
           <Image
-            alt="Me visiting the Tegallalang Rice Terrace in Bali"
+            alt="Janez Čadež visiting the Tegallalang Rice Terrace in Bali"
             src={me}
             priority
             className="rounded-lg object-cover"
@@ -62,7 +84,7 @@ export default function Page() {
         </ul>
       </section>
     </section>
-  );
+  )
 }
 
 function ArrowIcon() {
@@ -79,5 +101,5 @@ function ArrowIcon() {
         fill="currentColor"
       />
     </svg>
-  );
+  )
 }
