@@ -22,7 +22,7 @@ export default function Page() {
                   <a href="https://povio.com/">Povio</a>
                 </span>
                 , where I apply my skills and knowledge to create innovative
-                solutions.`
+                solutions.
               </span>
             </p>
             <p className="prose prose-neutral mb-3">
