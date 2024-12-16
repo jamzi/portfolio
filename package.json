@@ -3,7 +3,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "deploy:staging": "vercel",
+    "deploy:prod": "vercel --prod"
   },
   "dependencies": {
     "@vercel/analytics": "^1.1.1",

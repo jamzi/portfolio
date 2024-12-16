@@ -1,6 +1,36 @@
 import Image from "next/image"
 import me from "public/images/home/me.jpg"
 
+const socials = [
+  {
+    name: "Twitter",
+    url: "https://twitter.com/jamziSLO",
+  },
+  {
+    name: "GitHub",
+    url: "https://github.com/jamzi",
+  },
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/janez-cadez",
+  },
+]
+
+const projects = [
+  {
+    name: "Status Scheduler",
+    url: "https://www.statusscheduler.net/",
+  },
+  {
+    name: "Billable Ninja",
+    url: "https://www.billableninja.com/",
+  },
+  {
+    name: "Simple Org Chart",
+    url: "https://www.simpleorgchart.com/",
+  },
+]
+
 export default function Page() {
   return (
     <section>
@@ -15,22 +45,14 @@ export default function Page() {
               <span>
                 <span className="mr-1">
                   A software engineer, who thrives on building projects and
-                  bringing ideas to life. Currently, I’m leading the way as a
+                  bringing ideas to life. Currently, I've embarked on a
                 </span>
                 <span className="font-bold">
-                  React and React Native developer at{" "}
-                  <a href="https://povio.com/">Povio</a>
+                  solopreneur journey, creating useful software projects
                 </span>
-                , where I apply my skills and knowledge to create innovative
-                solutions.
+                , where I apply my skills and knowledge to develop innovative
+                solutions that make a difference.
               </span>
-            </p>
-            <p className="prose prose-neutral mb-3">
-              🚀
-              {` In my free time, I channel my entrepreneurial spirit into side
-              projects, always seeking new opportunities to learn and grow. I
-              believe that every challenge is a stepping stone to success, and
-              I’m not afraid to take the leap.`}
             </p>
             <p className="prose prose-neutral">
               🌎{" "}
@@ -47,41 +69,44 @@ export default function Page() {
             className="rounded-lg object-cover"
           />
         </div>
-        <ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-600">
-          <li>
-            <a
-              className="flex items-center hover:text-neutral-800 transition-all"
-              rel="noopener noreferrer"
-              target="_blank"
-              href="https://twitter.com/jamziSLO"
-            >
-              <ArrowIcon />
-              <p className="h-7 ml-2">Twitter</p>
-            </a>
-          </li>
-          <li>
-            <a
-              className="flex items-center hover:text-neutral-800 transition-all"
-              rel="noopener noreferrer"
-              target="_blank"
-              href="https://github.com/jamzi"
-            >
-              <ArrowIcon />
-              <p className="h-7 ml-2">GitHub</p>
-            </a>
-          </li>
-          <li>
-            <a
-              className="flex items-center hover:text-neutral-800 transition-all"
-              rel="noopener noreferrer"
-              target="_blank"
-              href="https://www.linkedin.com/in/janez-cadez"
-            >
-              <ArrowIcon />
-              <p className="h-7 ml-2">LinkedIn</p>
-            </a>
-          </li>
-        </ul>
+
+        <div className="mt-8">
+          <p className="font-bold text-xl mb-4 tracking-tighter">Projects</p>
+          <ul className="flex flex-col md:flex-row space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-600">
+            {projects.map(project => (
+              <li key={project.name}>
+                <a
+                  className="flex items-center hover:text-neutral-800 transition-all"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  href={project.url}
+                >
+                  <ArrowIcon />
+                  <p className="h-7 ml-2">{project.name}</p>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-8">
+          <p className="font-bold text-xl mb-4 tracking-tighter">Social</p>
+          <ul className="flex flex-col md:flex-row space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-600">
+            {socials.map(social => (
+              <li key={social.name}>
+                <a
+                  className="flex items-center hover:text-neutral-800 transition-all"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  href={social.url}
+                >
+                  <ArrowIcon />
+                  <p className="h-7 ml-2">{social.name}</p>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
     </section>
   )

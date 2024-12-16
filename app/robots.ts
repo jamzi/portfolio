@@ -5,7 +5,6 @@ export default function robots() {
         userAgent: "*",
       },
     ],
-    sitemap: "https://janez.tech/sitemap.xml",
-    host: "https://janez.tech",
-  };
+    sitemap: "https://www.janez.tech/sitemap.xml",
+  }
 }
